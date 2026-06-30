@@ -4,15 +4,14 @@
 
 import express from "express";
 import * as dotenv from "dotenv";
-import { createClient } from "@supabase/supabase-js";
-import { requireAuth, AuthRequest } from "../src/middleware/auth.ts";
+import { requireAuth, AuthRequest } from "../src/middleware/auth";
 import {
   isSupabaseConfigured,
   getSupabaseClient,
   mapUserToCamelCase,
   mapTicketToCamelCase,
   mapTicketToSnakeCase,
-} from "../src/lib/supabase-client.ts";
+} from "../src/lib/supabase-client";
 import { GoogleGenAI } from "@google/genai";
 
 dotenv.config();
