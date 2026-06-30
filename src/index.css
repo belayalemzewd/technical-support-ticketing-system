@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-slate-950: #0F1115;
+  --color-slate-900: #0A0C10;
+  --color-slate-800: #1B1E24;
+  --color-slate-700: #2C323F;
+  --color-slate-600: #4B5563;
+  --color-indigo-600: #4F46E5;
+  --color-indigo-500: #6366F1;
+  --color-emerald-500: #10B981;
+  --color-amber-500: #F59E0B;
+  --color-rose-500: #EF4444;
+  
+  --font-sans: "Inter", sans-serif;
+  --font-serif-display: "Georgia", serif;
+  --font-serif-elegant: "Georgia", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html, body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+  }
+  
+  pre, code, .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  }
+}
+
+/* Custom Compact Scrollbars for high density look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 17, 21, 0.4);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.5);
+}
+
+/* High density design helpers */
+.high-density-table th, .high-density-table td {
+  padding-top: 0.6rem !important;
+  padding-bottom: 0.6rem !important;
+}
+
+/* Elegant keyframe helper animations for custom elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Technical Support Ticketing System",
+  "description": "An advanced, web-based technical support ticketing system designed for logging, tracking, responding to, and analyzing partner and region level technical issues.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
