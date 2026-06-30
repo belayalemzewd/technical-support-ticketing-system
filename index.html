@@ -1,37 +1,39 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-    <script>
-      // Global error safeguard to isolate cross-origin parent iframe noise from real application state
-      window.addEventListener('error', function(event) {
-        if (!event.message || event.message === 'Script error.' || event.message.includes('ResizeObserver') || event.message.includes('Script error')) {
-          console.warn('Interceded cross-origin or layout-completion notification:', event.message || 'Script error');
-          event.stopImmediatePropagation();
-          event.preventDefault();
-          return true;
-        }
-      }, true);
-      window.onerror = function(message, source, lineno, colno, error) {
-        if (message === 'Script error.' || !message) {
-          console.warn('Sanitized cross-origin raw Script error.');
-          return true;
-        }
-        return false;
-      };
-      window.addEventListener('unhandledrejection', function(event) {
-        if (event.reason && (event.reason.message === 'Script error.' || String(event.reason).includes('Script error'))) {
-          event.stopImmediatePropagation();
-          event.preventDefault();
-        }
-      });
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NIDP TSTS</title>
+  <script>
+    // Global error safeguard to isolate cross-origin parent iframe noise from real application state
+    window.addEventListener('error', function (event) {
+      if (!event.message || event.message === 'Script error.' || event.message.includes('ResizeObserver') || event.message.includes('Script error')) {
+        console.warn('Interceded cross-origin or layout-completion notification:', event.message || 'Script error');
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        return true;
+      }
+    }, true);
+    window.onerror = function (message, source, lineno, colno, error) {
+      if (message === 'Script error.' || !message) {
+        console.warn('Sanitized cross-origin raw Script error.');
+        return true;
+      }
+      return false;
+    };
+    window.addEventListener('unhandledrejection', function (event) {
+      if (event.reason && (event.reason.message === 'Script error.' || String(event.reason).includes('Script error'))) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
