@@ -109,7 +109,7 @@ app.post("/api/auth/sync", requireAuth, async (req: AuthRequest, res) => {
           if (Object.keys(updateParams).length > 0) {
             const { data: updated, error: updateErr } = await supabase
               .from("users")
-              .update(updateParams)
+              .update(updateParams as Record<string, unknown>)
               .eq("uid", uid)
               .select()
               .single();
@@ -128,7 +128,7 @@ app.post("/api/auth/sync", requireAuth, async (req: AuthRequest, res) => {
           };
           const { data: inserted, error: insertErr } = await supabase
             .from("users")
-            .insert(newUser)
+            .insert(newUser as Record<string, unknown>)
             .select()
             .single();
           if (insertErr) throw insertErr;
@@ -169,7 +169,7 @@ app.post("/api/tickets", requireAuth, async (req: AuthRequest, res) => {
     if (isSupabaseConfigured()) {
       const supabase = getSupabaseClient();
       const ticketData = mapTicketToSnakeCase(req.body);
-      const { data, error } = await supabase.from("tickets").insert(ticketData).select().single();
+      const { data, error } = await supabase.from("tickets").insert(ticketData as Record<string, unknown>).select().single();
       if (error) throw error;
       return res.json(mapTicketToCamelCase(data));
     }
@@ -187,7 +187,7 @@ app.post("/api/tickets/:id/update", requireAuth, async (req: AuthRequest, res) =
     if (isSupabaseConfigured()) {
       const supabase = getSupabaseClient();
       const ticketData = mapTicketToSnakeCase(req.body);
-      const { data, error } = await supabase.from("tickets").update(ticketData).eq("id", id).select().single();
+      const { data, error } = await supabase.from("tickets").update(ticketData as Record<string, unknown>).eq("id", id).select().single();
       if (error) throw error;
       return res.json(mapTicketToCamelCase(data));
     }
